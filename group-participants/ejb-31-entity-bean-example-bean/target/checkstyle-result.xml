@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.11.2">
+<file name="/home/patty/TSP/S3/middleware/ejb/EJB-31-entity-bean-example/ejb-31-entity-bean-example-bean/src/main/java/enterprise/entity_bean_ejb/StatelessSessionBean.java">
+</file>
+<file name="/home/patty/TSP/S3/middleware/ejb/EJB-31-entity-bean-example/ejb-31-entity-bean-example-bean/src/main/java/enterprise/entity_bean_ejb/GroupAndParticipantsBean.java">
+</file>
+</checkstyle>
