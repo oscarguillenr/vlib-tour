@@ -134,7 +134,7 @@ public class StatelessSessionBean implements StatelessSession {
 	}
 
 	@Override
-	public String addPoi(final String tid, final String pid) {
+	public String addPoiToTour(final String tid, final String pid) {
 		return "OK";
 	}
 
@@ -145,6 +145,17 @@ public class StatelessSessionBean implements StatelessSession {
 
 	@Override
 	public String createPoi(final String pid, final String name, final String description, final double latitude, final double longitude) {
+		if (orders == null || orders.size() != 2) {
+			throw new RuntimeException(
+					"Unexpected number of orders: " + ((orders == null) ? "null" : "" + orders.size()));
+		}
+		POI poi = new POI();
+		poi.setId(pid);
+		poi.setName(name);
+		poi.setDescription(description);
+		GPSPosition position = new GPSPosition(latitude, longitude);
+		poi.setGpslocation(position);
+		em.persist(poi);
 		return "OK";
 	}
 

@@ -45,7 +45,7 @@ public interface StatelessSession {
   	 *		   the poi identifier which will be added
 	 * @return the string OK if there is no problem.
 	 */
-	String addPoi(String tid, String pid);
+	String addPoiToTour(String tid, String pid);
 
 	/**
 	 * remove a poi from a tour.
