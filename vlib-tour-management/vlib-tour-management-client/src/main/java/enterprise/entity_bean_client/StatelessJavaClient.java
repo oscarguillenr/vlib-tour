@@ -15,10 +15,12 @@ public class StatelessJavaClient {
 	        try {
 			InitialContext ic = new InitialContext();
 			sb = (StatelessSession) ic.lookup("enterprise.entity_bean_api.StatelessSession");
-			// System.out.print("\nCreating Tour...");
-			// String result = sb.createTour("T3", "Third Tour","Tour 3");
-			// System.out.print("\nCreating Tour...");
-			// result = sb.createTour("T2", "Second Tour","Tour 2");
+			System.out.print("\nCreating POI...");
+			String result = sb.createPoi("P1", "First Poi","Poi number 1",111.1,151.15);
+			System.out.print("\nCreating Tour...");
+			result = sb.createTour("T2", "Second Tour","Tour 2");
+			System.out.print("\nAdding Poi into tour1...");
+			result = sb.addPoiToTour("T1", "P1");
 			String tours = sb.listTours();
 			System.out.println(tours);
 		} catch(Exception e) {
