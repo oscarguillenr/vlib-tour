@@ -45,7 +45,7 @@ public class StatelessSessionBean implements StatelessSession {
 		q.setParameter("tid", tid);
 		List results = q.getResultList();
 		if (results == null || results.size() == 0) {
-			throw new RuntimeException("PID doesn't exist.");
+			throw new RuntimeException("TID doesn't exist.");
 		}
 
 		return "OK";
@@ -68,12 +68,12 @@ public class StatelessSessionBean implements StatelessSession {
 	}
 
 	@Override
-	public String addPoiToTour(final String tid, final String pid) {
-		Query q = em.createQuery("select o from Poi o where o.pid = :pid");
-		q.setParameter("pid", pid);
+	public String addPoiToTour(final String tid, final String poid) {
+		Query q = em.createQuery("select o from POI o where o.poid = :poid");
+		q.setParameter("poid", poid);
 		List results = q.getResultList();
 		if (results == null || results.size() == 0) {
-			throw new RuntimeException("PID doesn't exist.");
+			throw new RuntimeException("poid doesn't exist.");
 		}
 		POI poi = (POI) q.getSingleResult();
 
@@ -81,7 +81,7 @@ public class StatelessSessionBean implements StatelessSession {
 		q.setParameter("tid", tid);
 		results = q.getResultList();
 		if (results == null || results.size() == 0) {
-			throw new RuntimeException("TID has already been created.");
+			throw new RuntimeException("tid doesn't exist.");
 		}
 		Tour tour = (Tour) q.getSingleResult();
 		tour.getPOIs().add(poi);
@@ -90,20 +90,37 @@ public class StatelessSessionBean implements StatelessSession {
 	}
 
 	@Override
-	public String removePoiFromTour(final String tid, final String pid) {
+	public String removePoiFromTour(final String tid, final String poid) {
+		Query q = em.createQuery("select o from POI o where o.poid = :poid");
+		q.setParameter("poid", poid);
+		List results = q.getResultList();
+		if (results == null || results.size() == 0) {
+			throw new RuntimeException("poid doesn't exist.");
+		}
+		POI poi = (POI) q.getSingleResult();
+
+		q = em.createQuery("select o from Tour o where o.tid = :tid");
+		q.setParameter("tid", tid);
+		results = q.getResultList();
+		if (results == null || results.size() == 0) {
+			throw new RuntimeException("tid doesn't exist.");
+		}
+		Tour tour = (Tour) q.getSingleResult();
+		tour.getPOIs().remove(poi);
+		poi.getTours().remove(tour);
 		return "OK";
 	}
 
 	@Override
-	public String createPoi(final String pid, final String name, final String description, final double latitude, final double longitude) {
-		Query q = em.createQuery("select o from Poi o where o.pid = :pid");
-		q.setParameter("pid", pid);
+	public String createPoi(final String poid, final String name, final String description, final double latitude, final double longitude) {
+		Query q = em.createQuery("select o from POI o where o.poid = :poid");
+		q.setParameter("poid", poid);
 		List results = q.getResultList();
-		if (results != null || results.size() != 0) {
-			throw new RuntimeException("PID has already been created.");
+		if (results != null && results.size() >	 0) {
+			throw new RuntimeException("poid has already been created.");
 		}
 		POI poi = new POI();
-		poi.setId(pid);
+		poi.setId(poid);
 		poi.setName(name);
 		poi.setDescription(description);
 		GPSPosition position = new GPSPosition(latitude, longitude);
@@ -113,27 +130,32 @@ public class StatelessSessionBean implements StatelessSession {
 	}
 
 	@Override
-	public String removePoi(final String pid) {
-		Query q = em.createQuery("select o from Poi o where o.pid = :pid");
-		q.setParameter("pid", pid);
+	public String removePoi(final String poid) {
+		Query q = em.createQuery("select o from POI o where o.poid = :poid");
+		q.setParameter("poid", poid);
 		List results = q.getResultList();
 		if (results == null || results.size() == 0) {
-			throw new RuntimeException("PID doesn't exist.");
+			throw new RuntimeException("poid doesn't exist.");
 		}
+		POI poi = (POI) q.getSingleResult();
+		POI poi0 = em.merge(poi);
+		// Delete all records.
+		em.remove(poi0);
 
 		return "OK";
 	}
 
 	@Override
-	public String modifyPoiDescription(final String pid, final String newDescription) {
-		Query q = em.createQuery("select o from Poi o where o.pid = :pid");
-		q.setParameter("pid", pid);
+	public String modifyPoiDescription(final String poid, final String newDescription) {
+		Query q = em.createQuery("select o from POI o where o.poid = :poid");
+		q.setParameter("poid", poid);
 		List results = q.getResultList();
 		if (results == null || results.size() == 0) {
-			throw new RuntimeException("PID doesn't exist.");
+			throw new RuntimeException("poid doesn't exist.");
 		}
-
-
+		POI poi = (POI) q.getSingleResult();
+		poi.setDescription(newDescription);
+		em.persist(poi);
 
 		return "OK";
 	}

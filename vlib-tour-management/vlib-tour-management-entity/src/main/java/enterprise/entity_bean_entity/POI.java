@@ -135,4 +135,16 @@ public class POI implements Serializable {
 		this.tours = tours;
 	}
 
+    /**
+     * equals.
+     * 
+     * @return if are equals.
+     */
+    public boolean equals(Object object) {
+        if (object instanceof POI) {
+          POI otherId = (POI) object;
+          return (new String(otherId.poid).equals(this.poid));
+        }
+        return false;
+    }
 }	

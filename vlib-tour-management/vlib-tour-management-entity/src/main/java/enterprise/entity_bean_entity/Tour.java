@@ -1,6 +1,9 @@
 package enterprise.entity_bean_entity;
 
 import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.CascadeType.MERGE;
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.CascadeType.REFRESH;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -93,7 +96,7 @@ public class Tour implements Serializable {
 	 * 
 	 * @return the collection.
 	 */
-	@ManyToMany(cascade = ALL, mappedBy = "tours")
+	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, mappedBy = "tours")
     @JoinTable(name = "TOURS_POIS",
         joinColumns = 
             @JoinColumn(name = "DB_TOUR_ID",
@@ -123,4 +126,17 @@ public class Tour implements Serializable {
     public String toString() {
         return tid + " " + name;
     }
+
+    /**
+     * equal.
+     * 
+     * @return if are equals.
+     */
+    public boolean equals(Object object) {
+		if (object instanceof Tour) {
+		  Tour otherId = (Tour) object;
+		  return (new String(otherId.tid).equals(this.tid));
+		}
+		return false;
+	}
 }
