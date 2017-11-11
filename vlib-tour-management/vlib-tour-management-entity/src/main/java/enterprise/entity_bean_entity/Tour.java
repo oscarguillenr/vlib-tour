@@ -128,7 +128,7 @@ public class Tour implements Serializable {
     }
 
     /**
-     * equal.
+     * equals.
      * 
      * @return if are equals.
      */
