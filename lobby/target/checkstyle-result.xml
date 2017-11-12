@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<checkstyle version="6.11.2">
-<file name="/mci/msc2015/reinos_p/RabbitMQ-Tutorial-Step6/src/main/java/eu/telecomsudparis/rabbitmq/tutorial/RPCClient.java">
-</file>
-<file name="/mci/msc2015/reinos_p/RabbitMQ-Tutorial-Step6/src/main/java/eu/telecomsudparis/rabbitmq/tutorial/LobbyRoomService.java">
-</file>
-<file name="/mci/msc2015/reinos_p/RabbitMQ-Tutorial-Step6/src/main/java/eu/telecomsudparis/rabbitmq/tutorial/RPCServer.java">
-</file>
-</checkstyle>

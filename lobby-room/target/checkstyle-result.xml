@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.11.2">
+<file name="/mci/msc2015/reinos_p/RabbitMQ-Tutorial-Step6/src/main/java/vlibtour/lobbyroom/LobbyRoomRPCServer.java">
+</file>
+<file name="/mci/msc2015/reinos_p/RabbitMQ-Tutorial-Step6/src/main/java/vlibtour/lobbyroom/LobbyRoomRPCClient.java">
+</file>
+<file name="/mci/msc2015/reinos_p/RabbitMQ-Tutorial-Step6/src/main/java/vlibtour/lobbyroom/LobbyRoomService.java">
+</file>
+</checkstyle>

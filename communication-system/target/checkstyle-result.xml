@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.11.2">
+<file name="/mci/msc2015/reinos_p/communication/src/main/java/vlibtour/communicationsystem/CommunicationSystemParticipant.java">
+</file>
+<file name="/mci/msc2015/reinos_p/communication/src/main/java/vlibtour/communicationsystem/CommunicationSystemService.java">
+</file>
+<file name="/mci/msc2015/reinos_p/communication/src/main/java/vlibtour/communicationsystem/CommunicationSystem.java">
+</file>
+</checkstyle>
