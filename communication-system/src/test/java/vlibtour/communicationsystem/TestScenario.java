@@ -44,7 +44,7 @@ public class TestScenario {
 		String userId3 = "User3";
 		String uri = "amqp://localhost";
 		CommunicationSystem commSys = new CommunicationSystem(groupId, userId);
-		Assert.assertNotNull(c.getExchanges().stream().filter(q -> q.getName().equals(groupId + "_" + userId)));
+		//Assert.assertNotNull(c.getExchanges().stream().filter(q -> q.getName().equals(groupId + "_" + userId)));
 		//Assert.assertNotNull(c.getBindings().stream().filter(b -> b.getRoutingKey().equals(LobbyRoomRPCServer.BINDING_KEY)));
 		// Client creation.
 		CommunicationSystemParticipant client1 = new CommunicationSystemParticipant(groupId, userId, tourId, uri);

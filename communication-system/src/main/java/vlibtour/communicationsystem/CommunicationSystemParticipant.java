@@ -86,7 +86,7 @@ public class CommunicationSystemParticipant {
 		channel.exchangeDeclare(exchangeName, "topic");
 
 		// Creation of a queue of name visit-management
-		Boolean durable = true;
+		boolean durable = true;
 		clientUserId = userId;
 		clientTourId = tourId;
 		clientQueueName = clientTourId + "_" + clientUserId;

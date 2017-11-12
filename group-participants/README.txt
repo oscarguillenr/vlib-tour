@@ -3,9 +3,7 @@ $ mvn clean install
 
 The EJB bean is deployed with the Embedded Glassfish Server using
 Maven and this is done in the JUnit test of the module
-entity-bean-example-bean. For some explanations on the usage of
-Embedded Glassfish in JUnit tests, see for instance
-https://docs.oracle.com/javaee/7/tutorial/ejb-embedded003.htm.
+group_participant_bean. 
 
 Afterwards, the EJB bean can be deployed with the Glassfish asadmin tool.
 The EJB bean is deployed with the Glassfish asadmin tool.
@@ -13,9 +11,9 @@ Before executing the example, check your configuration:
 $ asadmin help
 
 To run the example, execute the following commands:
-$ asadmin start-domain domain1; asadmin start-database; asadmin deploy ejb-31-entity-bean-example-bean/target/entity-bean.jar
+$ asadmin start-domain domain1; asadmin start-database; asadmin deploy group_participant_bean/target/entity-bean.jar
 
-$ (cd ejb-31-entity-bean-example-client/; java -classpath $CLASSPATH:../ejb-31-entity-bean-example-bean/target/entity-bean.jar:target/ejb-31-entity-bean-example-client-4.0-SNAPSHOT.jar enterprise/entity_bean_client/StatelessJavaClient)
+$ (cd group_participant_client/; java -classpath $CLASSPATH:../group_participant_bean/target/entity-bean.jar:target/group_participant_client-4.0-SNAPSHOT.jar enterprise/entity_bean_client/StatelessJavaClient)
 
 Undeploy the component and stop the container by executing the commands:
 $ asadmin undeploy entity-bean; asadmin stop-database; asadmin stop-domain domain1
