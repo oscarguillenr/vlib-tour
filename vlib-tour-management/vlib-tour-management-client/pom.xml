@@ -99,7 +99,7 @@
 	  </execution>
 	</executions>
 	<configuration>
-	  <mainClass>enterprise.entity_bean_client.StatelessJavaClient</mainClass>   
+	  <mainClass>enterprise.entity_bean_client.TourManagementClient</mainClass>   
 	</configuration>
       </plugin>
     </plugins>

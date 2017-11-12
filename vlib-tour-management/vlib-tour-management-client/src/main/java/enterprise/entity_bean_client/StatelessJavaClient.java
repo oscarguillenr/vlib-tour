@@ -7,14 +7,14 @@ import enterprise.entity_bean_entity.POI;
 
 import enterprise.entity_bean_entity.Tour;
 
-import enterprise.entity_bean_api.StatelessSession;
+import enterprise.entity_bean_api.TourManagementSession;
 
 public class StatelessJavaClient {
 	public static void main(String args[]) {
-		StatelessSession sb;
+		TourManagementSession sb;
 	        try {
 			InitialContext ic = new InitialContext();
-			sb = (StatelessSession) ic.lookup("enterprise.entity_bean_api.StatelessSession");
+			sb = (TourManagementSession) ic.lookup("enterprise.entity_bean_api.TourManagementSession");
 			String result;
 			// result = sb.removePoi("P1");
 			// System.out.print("\nCreating Tour...");

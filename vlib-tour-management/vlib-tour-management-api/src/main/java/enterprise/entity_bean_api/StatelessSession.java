@@ -67,13 +67,15 @@ public interface StatelessSession {
   	 *         the poi name
   	 * @param description
   	 *         the poi description
+     * @param duration
+     *         duration in the poi
   	 * @param latitude
   	 *         the poi latitude
   	 * @param longitude
   	 *         the poi longitude
 	 * @return the string OK if there is no problem.
 	 */
-	String createPoi(String pid, String name, String description, double latitude, double longitude);
+	String createPoi(String pid, String name, String description, int duration, double latitude, double longitude);
 
 	/**
 	 * remove a poi.

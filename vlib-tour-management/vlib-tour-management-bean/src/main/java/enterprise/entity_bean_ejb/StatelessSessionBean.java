@@ -12,13 +12,13 @@ import enterprise.entity_bean_entity.POI;
 import enterprise.entity_bean_entity.Tour;
 import enterprise.entity_bean_entity.GPSPosition;
 
-import enterprise.entity_bean_api.StatelessSession;
+import enterprise.entity_bean_api.TourManagementSession;
 
 /**
  * The stateless session bean.
  */
 @Stateless
-public class StatelessSessionBean implements StatelessSession {
+public class StatelessSessionBean implements TourManagementSession {
 
 	/**
 	 * the reference to the entity manager, which persistence context is "pu1".
@@ -112,7 +112,7 @@ public class StatelessSessionBean implements StatelessSession {
 	}
 
 	@Override
-	public String createPoi(final String poid, final String name, final String description, final double latitude, final double longitude) {
+	public String createPoi(final String poid, final String name, final String description, final int duration, final double latitude, final double longitude) {
 		Query q = em.createQuery("select o from POI o where o.poid = :poid");
 		q.setParameter("poid", poid);
 		List results = q.getResultList();
@@ -123,6 +123,7 @@ public class StatelessSessionBean implements StatelessSession {
 		poi.setId(poid);
 		poi.setName(name);
 		poi.setDescription(description);
+		poi.setDuration(duration);
 		GPSPosition position = new GPSPosition(latitude, longitude);
 		poi.setGpslocation(position);
 		em.persist(poi);

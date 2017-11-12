@@ -33,6 +33,10 @@ public class POI implements Serializable {
      * location of the POI.
      */
     private GPSPosition gpslocation;
+    /**
+     * duration in the POI.
+     */
+    private int duration;
 
 	/**
 	 * tours
@@ -114,6 +118,25 @@ public class POI implements Serializable {
      */
     public void setGpslocation(final GPSPosition gpslocation) {
         this.gpslocation = gpslocation;
+    }
+
+    /**
+     * gets the duration.
+     * 
+     * @return the duration.
+     */
+    public int getDuration() {
+        return duration;
+    }
+
+    /**
+     * sets the duration.
+     * 
+     * @param duration
+     *            the duration.
+     */
+    public void setDuration(final int duration) {
+        this.duration = duration;
     }
 
 	/**
