@@ -2,6 +2,8 @@
 package enterprise.entity_bean_client;
 
 import javax.naming.InitialContext;
+import javax.naming.NamingEnumeration;
+import javax.naming.NameClassPair;
 
 import enterprise.entity_bean_entity.POI;
 
@@ -12,8 +14,12 @@ import enterprise.entity_bean_api.TourManagementSession;
 public class TourManagementClient {
 	public static void main(String args[]) {
 		TourManagementSession sb;
-	        try {
+	    try {
 			InitialContext ic = new InitialContext();
+			NamingEnumeration<NameClassPair> list = ic.list("");
+            while (list.hasMore()) {
+                System.out.println(list.next().getName());
+            }
 			sb = (TourManagementSession) ic.lookup("enterprise.entity_bean_api.TourManagementSession");
 			String result;
 			// result = sb.removePoi("P1");
