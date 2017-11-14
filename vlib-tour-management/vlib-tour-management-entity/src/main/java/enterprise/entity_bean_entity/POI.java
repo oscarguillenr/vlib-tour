@@ -159,6 +159,15 @@ public class POI implements Serializable {
 	}
 
     /**
+     * printable version.
+     * 
+     * @return string representation of the poi.
+     */
+    public String toString() {
+        return poid + ": " + name;
+    }
+
+    /**
      * equals.
      * 
      * @return if are equals.

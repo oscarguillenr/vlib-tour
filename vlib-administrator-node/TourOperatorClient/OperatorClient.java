@@ -21,10 +21,6 @@ public class OperatorClient {
             // glassfish default port value will be 3700,
             props.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
             InitialContext ic = new InitialContext(props);
-            NamingEnumeration<NameClassPair> list = ic.list("");
-            while (list.hasMore()) {
-                System.out.println(list.next().getName());
-            }
             tm = (TourManagementSession) ic.lookup("java:global/entity-bean/TourManagementSessionBean!enterprise.entity_bean_api.TourManagementSession");
             String result;
 
@@ -51,6 +47,9 @@ public class OperatorClient {
             result = tm.createTour("T2", "The unusual Paris 2", "The unusual Paris 2 description");
             System.out.println(result);
 
+            // Waiting for actions.
+            System.in.read();
+
             // Add pois to Tours
             System.out.print("\nAdding Poi Musée Grévin...");
             result = tm.addPoiToTour("T1", "P1");
@@ -72,6 +71,9 @@ public class OperatorClient {
             result = tm.addPoiToTour("T2", "P4");
             System.out.println(result);
 
+            // Waiting for actions.
+            System.in.read();
+
             // Modify some POI descriptions
             System.out.print("Modyfying Musée de Grévin description...");
             result = tm.modifyPoiDescription("P1", "New description 1");
@@ -79,8 +81,10 @@ public class OperatorClient {
             System.out.print("Modyfying Pyramide du Louvres description...");
             result = tm.modifyPoiDescription("P2", "New description 2");
             System.out.println(result);
-            
 
+            // Waiting for actions.
+            System.in.read();
+            
             // Remove somes pois from tour
             System.out.print("Removing poi Musée de Grévin from tour...");
             result = tm.removePoiFromTour("T1", "P1");

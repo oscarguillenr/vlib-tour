@@ -188,5 +188,6 @@
   <modules>
     <module>vlib-tour-management</module>
     <module>vlib-administrator-node</module>
+    <module>vlib-tourist-node</module>
   </modules>
 </project>

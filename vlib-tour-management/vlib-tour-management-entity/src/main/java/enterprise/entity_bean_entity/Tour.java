@@ -8,6 +8,7 @@ import static javax.persistence.CascadeType.REFRESH;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 import javax.persistence.*;
 
@@ -96,7 +97,7 @@ public class Tour implements Serializable {
 	 * 
 	 * @return the collection.
 	 */
-	@ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, mappedBy = "tours")
+	@ManyToMany(mappedBy = "tours")
     @JoinTable(name = "TOURS_POIS",
         joinColumns = 
             @JoinColumn(name = "DB_TOUR_ID",
@@ -124,7 +125,11 @@ public class Tour implements Serializable {
      * @return string representation of the tour.
      */
     public String toString() {
-        return tid + " " + name;
+        String out = tid + " " + name;
+        for (Iterator<POI> iterator = pois.iterator(); iterator.hasNext();) {
+            out += "\n    -- > " + iterator.next().toString();
+        }
+        return out;
     }
 
     /**
