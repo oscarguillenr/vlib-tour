@@ -45,10 +45,15 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.glassfish-samples</groupId>
+    <artifactId>vlib-tour</artifactId>
+    <version>4.0-SNAPSHOT</version>
+  </parent>
   <groupId>org.glassfish-samples</groupId>
-  <artifactId>vlib-tour</artifactId>
+  <artifactId>group-participant</artifactId>
   <packaging>pom</packaging>
-  <name>vlib-tour</name>
+  <name>The EJB Group Participant</name>
   <version>4.0-SNAPSHOT</version>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -85,7 +90,7 @@
         <version>2.19.1</version>
         <configuration>
           <enableAssertions>true</enableAssertions>
-      <reuseForks>false</reuseForks>
+	  <reuseForks>false</reuseForks>
         </configuration>
       </plugin>
       <!-- source packaging configuration -->
@@ -152,46 +157,43 @@
   <reporting>
     <plugins>
       <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-project-info-reports-plugin</artifactId>
-    <version>2.4</version>
-    <configuration>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-project-info-reports-plugin</artifactId>
+	<version>2.4</version>
+	<configuration>
           <dependencyDetailsEnabled>false</dependencyDetailsEnabled>
           <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
-    </configuration>
+	</configuration>
       </plugin>
       <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-javadoc-plugin</artifactId>
-    <version>2.9.1</version>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-javadoc-plugin</artifactId>
+	<version>2.9.1</version>
       </plugin>
       <plugin>
-    <groupId>org.codehaus.mojo</groupId>
-    <artifactId>findbugs-maven-plugin</artifactId>
-    <version>3.0.4</version>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>findbugs-maven-plugin</artifactId>
+	<version>3.0.4</version>
       </plugin>
       <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-checkstyle-plugin</artifactId>
-    <version>2.17</version>
-    <configuration>
-      <configLocation>config/checkstyle/sun_checks_adapted_to_tsp_csc.xml</configLocation>
-      <encoding>UTF-8</encoding>
-      <consoleOutput>true</consoleOutput>
-      <failsOnError>false</failsOnError>
-      <linkXRef>false</linkXRef>
-    </configuration>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-checkstyle-plugin</artifactId>
+	<version>2.17</version>
+	<configuration>
+	  <configLocation>config/checkstyle/sun_checks_adapted_to_tsp_csc.xml</configLocation>
+	  <encoding>UTF-8</encoding>
+	  <consoleOutput>true</consoleOutput>
+	  <failsOnError>false</failsOnError>
+	  <linkXRef>false</linkXRef>
+	</configuration>
       </plugin>
     </plugins>
   </reporting>
 
   <modules>
-    <module>vlib-tour-management</module>
-    <module>vlib-bikestation</module>
-    <module>vlib-administrator-node</module>
-    <module>vlib-tourist-node</module>
-    <module>lobby-room</module>
-    <module>communication-system</module>
-    <module>group-participant</module>
+    <module>group-participant-entity</module>
+    <module>group-participant-api</module>
+    <module>group-participant-bean</module>
+    <module>group-participant-client</module>
   </modules>
 </project>

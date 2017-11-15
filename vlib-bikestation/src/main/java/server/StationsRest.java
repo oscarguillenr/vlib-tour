@@ -102,10 +102,10 @@ public final class StationsRest {
     }
 
     /**
-     * gets the station with the given number. It produces an XML
+     * gets available bikes of a station. It produces an XML
      * document and a JSON text.
      * 
-     * @param name
+     * @param number
      *            the criterion for the selection.
      * @return the collection of stations
      * @throws JAXBException
@@ -116,14 +116,40 @@ public final class StationsRest {
     @GET
     @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
     @Path("/{number}")
-    public Station searchNumber(final @PathParam("number") String number) throws JAXBException, IOException {
+    public String getBikes(final @PathParam("number") String number) throws JAXBException, IOException {
         Station station;
         getStationsFromFile(fileName);
         station = stations.lookupNumber(number);
         if (station == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         } else {
-            return station;
+            return String.valueOf(station.getAvailableBikes());
+        }
+    }
+
+    /**
+     * gets available bike stands of a station. It produces an XML
+     * document and a JSON text.
+     * 
+     * @param number
+     *            the criterion for the selection.
+     * @return the collection of stations
+     * @throws JAXBException
+     *             the problem when un-marshaling.
+     * @throws IOException
+     *             the problem when reading to the file.
+     */
+    @GET
+    @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+    @Path("/{number}")
+    public String getBikeStands(final @PathParam("number") String number) throws JAXBException, IOException {
+        Station station;
+        getStationsFromFile(fileName);
+        station = stations.lookupNumber(number);
+        if (station == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        } else {
+            return String.valueOf(station.getAvailableBikeStands());
         }
     }
 }
