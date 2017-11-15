@@ -2,12 +2,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-
+    <parent>
+        <groupId>org.glassfish-samples</groupId>
+        <artifactId>vlib-tour</artifactId>
+        <version>4.0-SNAPSHOT</version>
+    </parent>
     <groupId>com.example</groupId>
-    <artifactId>vlibtour-bikestation</artifactId>
+    <artifactId>vlib_bikestation</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>vlibtour-bikestation</name>
+    <name>vlib_bikestation</name>
 
     <dependencyManagement>
         <dependencies>

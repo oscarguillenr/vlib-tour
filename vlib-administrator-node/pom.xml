@@ -99,7 +99,7 @@
     </execution>
   </executions>
   <configuration>
-    <mainClass>TourOperatorClient/OperatorClient</mainClass>   
+    <mainClass>TourOperatorClient.OperatorClient</mainClass>   
   </configuration>
       </plugin>
     </plugins>
