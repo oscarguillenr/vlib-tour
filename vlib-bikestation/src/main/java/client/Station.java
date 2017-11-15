@@ -70,5 +70,13 @@ public class Station {
 		return String.valueOf(number) + name + address + "\n\t/ Position: " + position.toString() + "\n\t/ Banking: " +String.valueOf(banking) + "\n\t/ Bonus: " + String.valueOf(bonus) + "\n\t/ Status: " + status + "\n\t/ Contract: " + contract_name + "\n\t/ Bikes: " + String.valueOf(bike_stands)  + "\n\t/ Available Bikes Stands: " + String.valueOf(available_bike_stands) + "\n\t/ Available Bikes: " + String.valueOf(available_bikes) + "\n\t/ Update: " + String.valueOf(last_update);
 	}
 
+	public long getAvailableBikes() {
+		return this.available_bikes;
+	}
+
+	public long getAvailableBikeStands() {
+		return this.available_bike_stands;
+	}
+
 }
 

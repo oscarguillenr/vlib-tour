@@ -115,7 +115,7 @@ public final class StationsRest {
      */
     @GET
     @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-    @Path("/{number}")
+    @Path("/bikes/{number}")
     public String getBikes(final @PathParam("number") String number) throws JAXBException, IOException {
         Station station;
         getStationsFromFile(fileName);
@@ -141,7 +141,7 @@ public final class StationsRest {
      */
     @GET
     @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-    @Path("/{number}")
+    @Path("/bikeStands/{number}")
     public String getBikeStands(final @PathParam("number") String number) throws JAXBException, IOException {
         Station station;
         getStationsFromFile(fileName);

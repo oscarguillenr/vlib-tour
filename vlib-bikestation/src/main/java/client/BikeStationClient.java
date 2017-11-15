@@ -89,11 +89,14 @@ public final class BikeStationClient {
                 System.out.println("Erreur de frappe");
                 System.exit(0);
             }
-            System.out.println("Station Number "+ tmp +" : \n" + service.path("stations/"+tmp).queryParam("contract", "Paris").queryParam("apiKey", "ff213b68fcf8331b598e4aec192ec62f57bf08ba").request().accept(MediaType.APPLICATION_JSON).get(Station.class));
+            Station station = service.path("stations/"+tmp).queryParam("contract", "Paris").queryParam("apiKey", "ff213b68fcf8331b598e4aec192ec62f57bf08ba").request().accept(MediaType.APPLICATION_JSON).get(Station.class);
+            System.out.println("Available bikes ("+ tmp +") : " + String.valueOf(station.getAvailableBikes()) + " \n");
+            System.out.println("Available bike stands  ("+ tmp +") : " + String.valueOf(station.getAvailableBikeStands()) + "" );
+            //System.out.println("Station Number "+ tmp +" : \n" + service.path("stations/"+tmp).queryParam("contract", "Paris").queryParam("apiKey", "ff213b68fcf8331b598e4aec192ec62f57bf08ba").request().accept(MediaType.APPLICATION_JSON).get(Station.class));
     	    System.out.println("---------------------------------------------------");
             System.out.println("---------------------------------------------------");
-            System.out.println("all stations     : \n"
-                    + service.path("stations").queryParam("contract", "Paris").queryParam("apiKey", "ff213b68fcf8331b598e4aec192ec62f57bf08ba").request().accept(MediaType.APPLICATION_JSON).get(Stations.class));
+            // System.out.println("all stations     : \n"
+                   // + service.path("stations").queryParam("contract", "Paris").queryParam("apiKey", "ff213b68fcf8331b598e4aec192ec62f57bf08ba").request().accept(MediaType.APPLICATION_JSON).get(Stations.class));
         /**
         * Emulated server
         *
@@ -160,8 +163,11 @@ public final class BikeStationClient {
                     System.exit(0);
                 }
                 System.out.println("---------------------------------------------------");
-                System.out.println("station by number      : \n" + service.path("stations/"+tmp)
-                        .request().accept(MediaType.APPLICATION_JSON).get(Station.class));
+                System.out.println("available bikes      : " + service.path("stations/bikes/"+tmp)
+                        .request().accept(MediaType.APPLICATION_JSON).get(String.class));
+                System.out.println("---------------------------------------------------");
+                System.out.println("available bike stands     : " + service.path("stations/bikeStands/"+tmp)
+                        .request().accept(MediaType.APPLICATION_JSON).get(String.class));
                 System.out.println("---------------------------------------------------");
             } else
                 System.out.println("Wrong action...Bye!");

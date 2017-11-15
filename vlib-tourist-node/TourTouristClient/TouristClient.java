@@ -100,34 +100,34 @@ public final class TouristClient {
             * Real server
             *
             */
-            System.out.println("------------- R E A L   S E R V E R ------------------");
-            Properties properties = new Properties();
-            FileInputStream input = new FileInputStream("TourTouristClient/bikestation.properties");
-            properties.load(input);
-            REST_URI = "https://" + properties.getProperty("jcdecaux.rooturl");
-            Client client = ClientBuilder.newClient();
-            URI uri = UriBuilder.fromUri(REST_URI).build();
-            WebTarget service = client.target(uri);
-            tmp = "";
-            C='\0';
-            System.out.print("Enter the required station (must be a correct station): ");
-            try {
-                while ((C=(char) System.in.read()) !='\n')
-                {
-                    if (C != '\r')  tmp = tmp+C;
+            // System.out.println("------------- R E A L   S E R V E R ------------------");
+            // Properties properties = new Properties();
+            // FileInputStream input = new FileInputStream("TourTouristClient/bikestation.properties");
+            // properties.load(input);
+            // REST_URI = "https://" + properties.getProperty("jcdecaux.rooturl");
+            // Client client = ClientBuilder.newClient();
+            // URI uri = UriBuilder.fromUri(REST_URI).build();
+            // WebTarget service = client.target(uri);
+            // tmp = "";
+            // C='\0';
+            // System.out.print("Enter the required station (must be a correct station): ");
+            // try {
+            //     while ((C=(char) System.in.read()) !='\n')
+            //     {
+            //         if (C != '\r')  tmp = tmp+C;
          
-                }
-            }
-            catch (IOException e)
-            {
-                System.out.println("Erreur de frappe");
-                System.exit(0);
-            }
-            System.out.println("Station Number "+ tmp +" : \n" + service.path("stations/"+tmp).queryParam("contract", "Paris").queryParam("apiKey", "ff213b68fcf8331b598e4aec192ec62f57bf08ba").request().accept(MediaType.APPLICATION_JSON).get(Station.class));
-            System.out.println("---------------------------------------------------");
-            System.out.println("---------------------------------------------------");
-            System.out.println("all stations     : \n"
-                    + service.path("stations").queryParam("contract", "Paris").queryParam("apiKey", "ff213b68fcf8331b598e4aec192ec62f57bf08ba").request().accept(MediaType.APPLICATION_JSON).get(Stations.class));
+            //     }
+            // }
+            // catch (IOException e)
+            // {
+            //     System.out.println("Erreur de frappe");
+            //     System.exit(0);
+            // }
+            // System.out.println("Station Number "+ tmp +" : \n" + service.path("stations/"+tmp).queryParam("contract", "Paris").queryParam("apiKey", "ff213b68fcf8331b598e4aec192ec62f57bf08ba").request().accept(MediaType.APPLICATION_JSON).get(Station.class));
+            // System.out.println("---------------------------------------------------");
+            // System.out.println("---------------------------------------------------");
+            // System.out.println("all stations     : \n"
+            //         + service.path("stations").queryParam("contract", "Paris").queryParam("apiKey", "ff213b68fcf8331b598e4aec192ec62f57bf08ba").request().accept(MediaType.APPLICATION_JSON).get(Stations.class));
 
         } catch(Exception e) {
             e.printStackTrace();
