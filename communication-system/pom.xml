@@ -211,9 +211,4 @@ https://github.com/rabbitmq/rabbitmq-tutorials
       </plugin>
     </plugins>
   </reporting>
-  <parent>
-  	<version>1.0-SNAPSHOT</version>
-  	<artifactId>vlibtour</artifactId>
-  	<groupId>org.glassfish-samples</groupId>
-  </parent>
 </project>

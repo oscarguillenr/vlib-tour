@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: vlibtour.lobbyroom.TestScenario
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.144 sec <<< FAILURE! - in vlibtour.lobbyroom.TestScenario
+vlibtour.lobbyroom.TestScenario  Time elapsed: 1.14 sec  <<< ERROR!
+java.io.IOException: Cannot run program "rabbitmq-server": error=2, No such file or directory
+	at vlibtour.lobbyroom.TestScenario.setUp(TestScenario.java:30)
+Caused by: java.io.IOException: error=2, No such file or directory
+	at vlibtour.lobbyroom.TestScenario.setUp(TestScenario.java:30)
+
+vlibtour.lobbyroom.TestScenario  Time elapsed: 1.144 sec  <<< ERROR!
+java.io.IOException: Cannot run program "rabbitmqctl": error=2, No such file or directory
+	at vlibtour.lobbyroom.TestScenario.tearDown(TestScenario.java:74)
+Caused by: java.io.IOException: error=2, No such file or directory
+	at vlibtour.lobbyroom.TestScenario.tearDown(TestScenario.java:74)
+
